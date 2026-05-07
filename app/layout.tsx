@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "Sistem Pengelolaan Arsip Digital Sub Bagian Tata Usaha Suku Dinas Pendidikan Wilayah 2 Kota Administrasi Jakarta Utara",
 };
 
+import { ThemeProvider } from "./components/ThemeProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,9 +23,15 @@ export default function RootLayout({
     <html
       lang="id"
       className={`${inter.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
+
 

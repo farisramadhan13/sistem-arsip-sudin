@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
+
 @theme {
   --color-primary: #0f172a;
   --color-secondary: #334155;
@@ -15,14 +18,13 @@
   --accent: #fbbf24;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #020617;
-    --foreground: #f8fafc;
-    --primary: #f8fafc;
-    --secondary: #94a3b8;
-  }
+.dark {
+  --background: #020617;
+  --foreground: #f8fafc;
+  --primary: #f8fafc;
+  --secondary: #94a3b8;
 }
+
 
 * {
   scroll-behavior: smooth;

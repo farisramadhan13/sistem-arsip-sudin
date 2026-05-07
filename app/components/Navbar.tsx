@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,25 +32,30 @@ export default function Navbar() {
           </div>
         </Link>
 
-
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8">
           <Link href="#beranda" className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors">Beranda</Link>
           <Link href="#profil" className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors">Profil</Link>
           <Link href="#fitur" className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors">Fitur</Link>
           <Link href="#kontak" className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors">Kontak</Link>
-          <Link 
-            href="/login" 
-            className="bg-primary text-white dark:bg-accent dark:text-primary px-8 py-3 rounded-2xl text-sm font-black hover:scale-105 hover:shadow-accent/20 transition-all shadow-lg"
-          >
-            Masuk Sistem
-          </Link>
+          <div className="flex items-center gap-4 border-l border-primary/10 dark:border-white/10 pl-8">
+            <ThemeToggle />
+            <Link 
+              href="/login" 
+              className="bg-primary text-white dark:bg-accent dark:text-primary px-8 py-3 rounded-2xl text-sm font-black hover:scale-105 hover:shadow-accent/20 transition-all shadow-lg"
+            >
+              Masuk Sistem
+            </Link>
+          </div>
         </div>
 
-
-        <button className="md:hidden text-primary dark:text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-        </button>
+        <div className="flex items-center gap-4 md:hidden">
+          <ThemeToggle />
+          <button className="text-primary dark:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+        </div>
       </div>
     </nav>
   );
 }
+
