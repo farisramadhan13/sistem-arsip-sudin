@@ -22,10 +22,11 @@ export default function Hero() {
               Transformasi <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-hover">Digital</span> Kearsipan Masa Depan.
             </h1>
             
-            <p className="text-lg lg:text-xl text-secondary max-w-2xl mb-10 leading-relaxed dark:text-slate-400 mx-auto lg:mx-0">
+            <p className="text-lg lg:text-xl text-secondary max-w-2xl mb-10 leading-relaxed dark:text-slate-300 mx-auto lg:mx-0">
               Sistem Informasi Pengelolaan Arsip Digital yang dirancang khusus untuk meningkatkan efisiensi, 
               keamanan, dan kemudahan akses data pada Sub Bagian Tata Usaha.
             </p>
+
             
             <div className="flex flex-wrap justify-center lg:justify-start gap-4">
               <button className="px-10 py-4 bg-primary text-white dark:bg-accent dark:text-primary rounded-2xl font-black shadow-2xl hover:shadow-primary/20 hover:-translate-y-1 transition-all">

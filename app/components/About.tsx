@@ -32,9 +32,10 @@ export default function About() {
           
           <div className="w-full lg:w-1/2">
             <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">Tentang Kami</h2>
-            <h3 className="text-4xl font-extrabold mb-8 leading-tight">Mewujudkan Tata Kelola Arsip yang Modern dan Efisien.</h3>
+            <h3 className="text-4xl font-extrabold mb-8 leading-tight text-primary dark:text-white">Mewujudkan Tata Kelola Arsip yang Modern dan Efisien.</h3>
             
-            <div className="space-y-6 text-secondary leading-relaxed">
+            <div className="space-y-6 text-secondary dark:text-slate-300 leading-relaxed">
+
               <p>
                 Sub Bagian Tata Usaha pada Suku Dinas Pendidikan Wilayah 2 Jakarta Utara memiliki peran 
                 vital dalam mengelola administrasi dan dokumentasi pendidikan. Di era digital ini, 
