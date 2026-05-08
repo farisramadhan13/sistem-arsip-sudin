@@ -6,6 +6,7 @@ import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,11 +33,12 @@ export default function Navbar() {
           </div>
         </Link>
 
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          <Link href="#beranda" className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors">Beranda</Link>
-          <Link href="#profil" className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors">Profil</Link>
-          <Link href="#fitur" className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors">Fitur</Link>
-          <Link href="#kontak" className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors">Kontak</Link>
+          <Link href="/" className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors">Beranda</Link>
+          <Link href="/profil" className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors">Profil</Link>
+          <Link href="/layanan" className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors">Layanan</Link>
+          <Link href="/kontak" className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors">Kontak</Link>
           <div className="flex items-center gap-4 border-l border-primary/10 dark:border-white/10 pl-8">
             <ThemeToggle />
             <Link 
@@ -48,14 +50,39 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* Mobile Toggle */}
         <div className="flex items-center gap-4 md:hidden">
           <ThemeToggle />
-          <button className="text-primary dark:text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-primary dark:text-white focus:outline-none"
+            aria-label="Toggle mobile menu"
+          >
+            {isMobileMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            )}
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-slate-900 border-t border-primary/10 dark:border-white/10 shadow-xl py-4 px-6 flex flex-col gap-4">
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors py-2 border-b border-primary/5 dark:border-white/5">Beranda</Link>
+          <Link href="/profil" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors py-2 border-b border-primary/5 dark:border-white/5">Profil</Link>
+          <Link href="/layanan" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors py-2 border-b border-primary/5 dark:border-white/5">Layanan</Link>
+          <Link href="/kontak" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-primary/70 dark:text-white/70 hover:text-accent dark:hover:text-accent transition-colors py-2 border-b border-primary/5 dark:border-white/5">Kontak</Link>
+          <Link 
+            href="/login" 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="bg-primary text-white dark:bg-accent dark:text-primary px-8 py-3 rounded-2xl text-sm font-black hover:scale-105 hover:shadow-accent/20 transition-all shadow-lg text-center mt-2"
+          >
+            Masuk Sistem
+          </Link>
+        </div>
+      )}
     </nav>
   );
 }
-
